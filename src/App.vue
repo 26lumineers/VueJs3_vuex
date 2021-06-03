@@ -1,32 +1,59 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    
+    <v-app>q
+    
+      <v-app-bar app>
+      </v-app-bar>
+    
+      <v-main>
+    
+        <v-container fluid>
+     <v-row > 
+        <v-col>
+          <p class="purple dark white--text" >purple</p>
+          <h1>Demo VueX</h1>
+          <h1>{{ $store.getters.getCount }}</h1>
+          <v-btn depressed @click="viewData">FIDZ</v-btn>
+        </v-col>
+        <v-col>
+          <v-btn raised dark color="primary">FIDZ</v-btn>
+
+        </v-col>
+
+        <hr>
+      </v-row>
+      <hr>
+      <br>
+      <ComA />
+      <br>
+      <hr>
+      <ComB />
+        </v-container>
+      </v-main>
+    
+      <v-footer app>
+      </v-footer>
+    </v-app>
   </div>
 </template>
 
+<script>
+import ComA from "@/components/ComA.vue";
+import ComB from "@/components/ComB.vue";
+export default {
+  name: "app",
+  mounted() {
+    setInterval(() => {
+      // this.$store.state.count++;
+    }, 1000);
+  },
+  components: {
+    ComA,
+    ComB
+  }
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
